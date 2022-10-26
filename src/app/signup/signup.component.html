@@ -1,0 +1,17 @@
+<div class="container p-5 w-75">
+    <div class="card d-flex flex-column align-items-center p-5">
+        <h1>Signup!</h1>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <input type="text" formControlName="username" class="form-control mb-3 mt-3" placeholder="Enter Username"/>
+            <div style="color:red" *ngIf="form.get('username').invalid && form.get('username').touched">Please Provide a UserName</div>
+            <input  type="email" formControlName="email" class="form-control mb-3" placeholder="Enter Email"/>
+            <div style="color:red" *ngIf="form.get('email').invalid && form.get('email').touched">Please Provide an Email</div>
+            <input type="password" formControlName="password" class="form-control mb-3" placeholder="Enter Password"/>
+            <div style="color:red" *ngIf="form.get('password').invalid && form.get('password').touched">Please Provide a Password</div>
+            <div class="column">
+                <button [disabled]="!form.invalid" class="btn btn-primary me-3" type="submit">Submit</button>
+                <button class="btn btn-primary" [routerLink]="['login']" (click)="navigateLogin()">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
